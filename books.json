@@ -1,0 +1,41 @@
+[
+    {
+        "model": "myapp.book",
+        "pk": 1,
+        "fields": {
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "price": "19.99",
+            "inventory": 10
+        }
+    },
+    {
+        "model": "myapp.book",
+        "pk": 1,
+        "fields": {
+            "title": "1984",
+            "author": "George Orwell",
+            "price": "15.99",
+            "inventory": 15
+        }
+    },
+    {
+        "model": "myapp.book",
+        "fields": {
+            "title": "qwerteyr",
+            "author": "George Orfdsfdwwell",
+            "price": "15.99",
+            "inventory": 15
+        }
+    },
+    {
+        "model": "myapp.book",
+        "pk": 1,
+        "fields": {
+            "title": "qwertfsdfdweyr",
+            "author": "Georgdfsdfse Orfdsfdwwell",
+            "price": "5.99",
+            "inventory": 15
+        }
+    }
+]
