@@ -3,8 +3,10 @@ from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from ..models import Book
 from ..serializers import BookSerializer
+from ..permissions import IsAdminUser, IsManagerUser
 import json
 
 # API v1 using Django standard views
@@ -72,6 +74,13 @@ class BookDetailView(View):
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+
+    def get_permissions(self):
+        if self.action in ['create', 'update', 'partial_update', 'destroy']:
+            permission_classes = [IsAuthenticated, IsAdminUser]
+        else:
+            permission_classes = [IsAuthenticated, IsManagerUser]
+        return [permission() for permission in permission_classes]
     
     def list(self, request):
         queryset = Book.objects.all()
